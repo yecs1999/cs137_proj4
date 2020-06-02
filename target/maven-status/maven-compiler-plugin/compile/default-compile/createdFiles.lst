@@ -1,0 +1,8 @@
+com\cs137\proj3\JAXRSConfiguration.class
+com\cs137\proj3\resources\JavaEE8Resource.class
+ProductDetailsServlet.class
+IndexServlet.class
+CheckoutSubmissionServlet.class
+OrderDetailsServlet.class
+CheckoutServlet.class
+CarHistoryServlet.class
