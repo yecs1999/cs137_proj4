@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+    <title>Form to create a new resource</title>
+</head>
+<body>
+<center><h2>Create a new TODO</h2></center>
+<form action="http://localhost:8080/TodoRestService/v1/api/todos" method="POST">
+    <label for="summary">Summary</label>
+    <input id="summary" name="summary" />
+    <br/>
+    Description:
+    <input name="description" ></input>
+    <br/>
+    <input type="submit" value="Submit" />
+</form>
+</body>
+</html>
