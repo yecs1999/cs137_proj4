@@ -50,7 +50,7 @@ public class RESTClientServlet extends HttpServlet {
 
         ObjectMapper objectMapper = new ObjectMapper(); // This object is from the jackson library
 
-        List<Todo> todoList = objectMapper.readValue(jsonResponse, new TypeReference<List<Todo>>(){});
+        List<Car> todoList = objectMapper.readValue(jsonResponse, new TypeReference<List<Car>>(){});
 
         PrintWriter out = response.getWriter();
 
@@ -62,9 +62,9 @@ public class RESTClientServlet extends HttpServlet {
                 "<ul>"
         );
 
-        for(Todo todo : todoList) {
+        for(Car todo : todoList) {
             out.print("<li>");
-            out.print(todo.getSummary() + " - " + todo.getDescription());
+            //out.print(todo.getSummary() + " - " + todo.getDescription());
             out.print("</li>");
         }
         out.print("</ul>");
@@ -80,10 +80,10 @@ public class RESTClientServlet extends HttpServlet {
                         accept(MediaType.APPLICATION_JSON). //specify the media type of the response
                         get(String.class);
 
-        Todo todo = objectMapper.readValue(jsonResponse2, Todo.class);
+        Car todo = objectMapper.readValue(jsonResponse2, Car.class);
 
         out.print("<li>");
-        out.print(todo.getSummary() + " - " + todo.getDescription());
+        //out.print(todo.getSummary() + " - " + todo.getDescription());
         out.print("</li>");
 
         out.print("</ul></body></html>");
