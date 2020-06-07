@@ -9,9 +9,9 @@
  * @author 
  */
 public class Car {
-    private String main_img;
-    private String sub_img;
-    private String int_img;
+    private String mainImg;
+    private String subImg;
+    private String intImg;
     private String category;
     private String make;
     private String model;
@@ -25,7 +25,7 @@ public class Car {
     private String location;
     private String description;
     
-    public Car(String main_img,String sub_img, String int_img,String category, String make, 
+    /*public Car(String main_img,String sub_img, String int_img,String category, String make, 
              String model, String trim, String color, String year, String odo, String gearbox,
              String engine, String price, String location, String description){
         this.main_img = main_img;
@@ -43,15 +43,15 @@ public class Car {
         this.price = price;
         this.location = location;
         this.description = description;
-    }
+    }*/
     public String getMainImg(){
-        return main_img;
+        return mainImg;
     }
     public String getSubImg(){
-        return sub_img;
+        return subImg;
     }
     public String getIntImg(){
-        return int_img;
+        return intImg;
     }
     public String getCategory(){
         return category;

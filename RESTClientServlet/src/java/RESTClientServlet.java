@@ -80,7 +80,7 @@ public class RESTClientServlet extends HttpServlet {
                         accept(MediaType.APPLICATION_JSON). //specify the media type of the response
                         get(String.class);
 
-        Car todo = objectMapper.readValue(jsonResponse2, Car.class);
+        //Car todo = objectMapper.readValue(jsonResponse2, Car.class);
 
         out.print("<li>");
         //out.print(todo.getSummary() + " - " + todo.getDescription());
