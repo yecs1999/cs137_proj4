@@ -86,7 +86,7 @@ public class CarHistoryServlet extends HttpServlet {
                 String make = car.getMake();
                 String model = car.getModel();
                 String year = car.getYear();
-                innerHtml += "<b>PID " + myPid + ":</b> <a href=car_info.html?pid=" + myPid
+                innerHtml += "<b>PID " + myPid + ":</b> <a href=ProductDetailsServlet?pid=" + myPid
                         + " onclick='addCarToHistory(" + myPid + ");'>" + make + " " + model + " " + year + "</a><br>";
                 
             }
