@@ -14,7 +14,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URI;
 import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpSession;
 
 
 /**
@@ -32,7 +34,7 @@ public class IndexServlet extends HttpServlet {
         ClientConfig config = new ClientConfig();
         Client client = ClientBuilder.newClient(config);
         WebTarget target = client.target(getBaseURI());
-        
+        HttpSession session = request.getSession();
         PrintWriter out = response.getWriter();
         
         /*String jsonResponse = target.path("v1").path("api").path("cars").
@@ -75,6 +77,15 @@ public class IndexServlet extends HttpServlet {
         htmlText += endHtml;
         
         out.write(htmlText);
+        try{
+            
+            RequestDispatcher dis = request.getRequestDispatcher("CarHistoryServlet");          
+            dis.include(request, response);
+        }
+        catch (Exception e){
+            System.out.println(e.toString());
+            response.setStatus(500);
+        }
     }
     
     private static URI getBaseURI() {
