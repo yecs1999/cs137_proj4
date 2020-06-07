@@ -26,7 +26,8 @@ public class CarService {
         if (resultSet != null) {
             try {
                 while (resultSet.next()) {
-                    Car car = new Car(resultSet.getString("main_img"),
+                    Car car = new Car(resultSet.getString("pid"),
+                            resultSet.getString("main_img"),
                             resultSet.getString("sub_img"),
                             resultSet.getString("int_img"),
                             resultSet.getString("category"),
@@ -65,7 +66,8 @@ public class CarService {
         if (resultSet != null) {
             try {
                 while (resultSet.next()) {
-                    Car car = new Car(resultSet.getString("main_img"),
+                    Car car = new Car(resultSet.getString("pid"),
+                            resultSet.getString("main_img"),
                             resultSet.getString("sub_img"),
                             resultSet.getString("int_img"),
                             resultSet.getString("category"),

@@ -10,6 +10,7 @@ package com.uci.carrestservice.model;
  * @author Chris
  */
 public class Car {
+    private String pid;
     private String main_img;
     private String sub_img;
     private String int_img;
@@ -26,9 +27,10 @@ public class Car {
     private String location;
     private String description;
     
-    public Car(String main_img,String sub_img, String int_img,String category, String make, 
+    public Car(String pid,String main_img,String sub_img, String int_img,String category, String make, 
              String model, String trim, String color, String year, String odo, String gearbox,
              String engine, String price, String location, String description){
+        this.pid = pid;
         this.main_img = main_img;
         this.sub_img = sub_img;
         this.int_img = int_img;
@@ -44,6 +46,9 @@ public class Car {
         this.price = price;
         this.location = location;
         this.description = description;
+    }
+    public String getPid(){
+        return pid;
     }
     public String getMainImg(){
         return main_img;

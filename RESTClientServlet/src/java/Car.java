@@ -9,6 +9,7 @@
  * @author 
  */
 public class Car {
+    private String pid;
     private String mainImg;
     private String subImg;
     private String intImg;
@@ -44,6 +45,9 @@ public class Car {
         this.location = location;
         this.description = description;
     }*/
+    public String getPid(){
+        return pid;
+    }
     public String getMainImg(){
         return mainImg;
     }
