@@ -5,6 +5,7 @@ import org.glassfish.jersey.client.ClientConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
@@ -13,7 +14,7 @@ import javax.ws.rs.core.UriBuilder;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URI;
-import java.util.List;
+import java.util.ArrayList;
 import javax.servlet.annotation.WebServlet;
 
 /**
@@ -28,10 +29,26 @@ public class ProductDetailsServlet extends HttpServlet {
             throws IOException {
         response.setContentType("text/html;charset=UTF-8");
         String pid = request.getParameter("pid");
+        String to_save = request.getParameter("to_save");
+        HttpSession session = request.getSession();
         
         ClientConfig config = new ClientConfig();
         Client client = ClientBuilder.newClient(config);
         WebTarget target = client.target(getBaseURI());
+        
+        ArrayList<String> current_cart = (ArrayList<String>)session.getAttribute("shopping_cart");
+        if(current_cart == null) {
+            //Set shopping_cart with one if not set
+            ArrayList<String> new_cart = new ArrayList<String>();
+            session.setAttribute("shopping_cart", new_cart);
+            current_cart = (ArrayList<String>)session.getAttribute("shopping_cart");
+        }
+        String saveMessage = "";
+        if (to_save != null)
+        {
+            current_cart.add(pid);
+            saveMessage = "<div><h2>Car with id: (" + pid + ") is now in cart. </h2></div>";
+        }
         
         PrintWriter out = response.getWriter();
         
@@ -103,7 +120,7 @@ public class ProductDetailsServlet extends HttpServlet {
         htmlText += 
             "<div class=\"buttonDiv\">" +
                         
-                "<button type=\"button\" id=\"orderButton\" onclick= 'saveCar()'>"+
+                "<button type=\"button\" id=\"orderButton\" onclick= 'location.href=\"ProductDetailsServlet?pid=" + pid + "&to_save=true\"'>"+
                     "Add to Cart" +
                 "</button>"+
                 "<br/>"+
@@ -115,6 +132,7 @@ public class ProductDetailsServlet extends HttpServlet {
                     "Checkout" +
                 "</button>"+
             "</div>";
+        htmlText += saveMessage;
         htmlText += endHtml;
         
         out.write(htmlText);
