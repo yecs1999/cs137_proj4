@@ -1,5 +1,6 @@
 # cs137_proj4
 
+RESTClient url: http://localhost:8080/RESTClientServlet/
 GROUP MEMBERS:
 Christopher Ye: Student# 93031221
 Zhen Li: Student# 84257555
