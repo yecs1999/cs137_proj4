@@ -1,5 +1,6 @@
 # cs137_proj4
 
+RESTClient url: http://localhost:8080/RESTClientServlet/
 GROUP MEMBERS:
 Christopher Ye: Student# 93031221
 Zhen Li: Student# 84257555
@@ -21,39 +22,39 @@ Clicking Checkout then shows the user a confirmation screen as well as stores th
 RESTful Service Methods:
 Base URL: http://localhost:8080/CarRestService
 
-GET:
-    Request URL:
-        v1/api/cars/{pid}
-        v1/api/cars/category={category}&row={row}
-    Sample Response:
-    {"category":"sports",
-    "make":"Lotus",
-    "model":"Esprit",
-    "trim":"V8",
-    "color":"Silver",
-    "year":"2003",
-    "odo":"50000",
-    "gearbox":"Manual",
-    "engine":"3.5 8cyl",
-    "price":"40000",
-    "location":"Scottsdale, AZ",
-    "description":"Family owned for 17 years, mostly highway miles, always maintained at
-    lotus dealership. Very rare twin turbo v8 version, this is one of the last affordable
-    exotic cars.",
-    "subImg":"./img/sports/csp11/2.jpg",
-    "mainImg":"./img/sports/csp11/1.jpg",
-    "intImg":"./img/sports/csp11/3.jpg"}
+<b>GET:</b> <br>
+    <b>Request URL:</b> <br>
+        v1/api/cars/{pid} <br>
+        v1/api/cars/category={category}&row={row} <br>
+    <b>Sample Response:</b> <br>
+    {"category":"sports", <br>
+    "make":"Lotus",<br>
+    "model":"Esprit",<br>
+    "trim":"V8",<br>
+    "color":"Silver",<br>
+    "year":"2003",<br>
+    "odo":"50000",<br>
+    "gearbox":"Manual",<br>
+    "engine":"3.5 8cyl",<br>
+    "price":"40000",<br>
+    "location":"Scottsdale, AZ",<br>
+    "description":"Family owned for 17 years, mostly highway miles, always maintained at<br>
+    lotus dealership. Very rare twin turbo v8 version, this is one of the last affordable<br>
+    exotic cars.",<br>
+    "subImg":"./img/sports/csp11/2.jpg",<br>
+    "mainImg":"./img/sports/csp11/1.jpg",<br>
+    "intImg":"./img/sports/csp11/3.jpg"}<br>
 
-POST:
-    Request URL:
-        v1/api/cars/send
-    Sample Request:
-    {"model":"2016 Chevrolet Corvette Z06",
-    "phone":"(949)468-8303",
-    "email":"me@gmail.com",
-    "method":"standard",
-    "country":"United States",
-    "fullAddress":"1111 Somewhere Ln Irvine CA 92604",
-    "card":"123456789011",
-    "cvv":"132",
-    "fullName":"Luke Falcone"}
+<b>POST:</b><br>
+    <b>Request URL:</b><br>
+        v1/api/cars/send<br>
+   <b> Sample Request:</b><br>
+    {"model":"2016 Chevrolet Corvette Z06",<br>
+    "phone":"(949)468-8303",<br>
+    "email":"me@gmail.com",<br>
+    "method":"standard",<br>
+    "country":"United States",<br>
+    "fullAddress":"1111 Somewhere Ln Irvine CA 92604",<br>
+    "card":"123456789011",<br>
+    "cvv":"132",<br>
+    "fullName":"Luke Falcone"}<br>
