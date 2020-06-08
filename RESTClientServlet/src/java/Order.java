@@ -8,6 +8,9 @@
  *
  * @author Chris
  */
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "order")
 public class Order {
     private String model;
     private String fullname;
@@ -18,19 +21,33 @@ public class Order {
     private String fullAddress;
     private String card;
     private String cvv;
-    public Order(String model,String fullname, String phone,String email, String method, 
-             String country, String fullAddress, String card, String cvv){
+    public void setModel(String model){
         this.model = model;
-        this.fullname = fullname;
-        this.phone = phone;
-        this.email = email;
-        this.method = method;
-        this.country = country;
-        this.fullAddress = fullAddress;
-        this.card = card;
-        this.cvv = cvv;
-
     }
+    public void setFullName(String fullname){
+        this.fullname= fullname;
+    }
+    public void setPhone(String phone){
+        this.phone =  phone;
+    }
+    public void setEmail(String email){
+        this.email= email;
+    }
+    public void setMethod(String method){
+        this.method= method;
+    }
+    public void setCountry(String country){
+        this.country= country;
+    }
+    public void setFullAddress(String fullAddress){
+        this.fullAddress= fullAddress;
+    }
+    public void setCard(String card){
+        this.card= card;
+    }
+    public void setCVV(String cvv){
+        this.cvv= cvv;
+    }    
     public String getModel(){
         return model;
     }
@@ -57,6 +74,10 @@ public class Order {
     }
     public String getCVV(){
         return cvv;
-    }    
+    }
+    @Override
+    public String toString(){
+        return "THIS IS TEST Order model:" + model;
+    }
         
 }

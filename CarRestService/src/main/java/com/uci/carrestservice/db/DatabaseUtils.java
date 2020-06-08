@@ -67,7 +67,7 @@ public class DatabaseUtils {
 
             int i = 1;
             for (String param : params) {
-
+                System.out.println(param+"\n");
                 preparedStatement.setString(i++, param);
 
             }
@@ -75,6 +75,7 @@ public class DatabaseUtils {
             return preparedStatement.executeUpdate() > 0 ;
 
         } catch (SQLException e) {
+            System.out.println("SQL Error here?? " + e.toString());
             return false;
         }
     }

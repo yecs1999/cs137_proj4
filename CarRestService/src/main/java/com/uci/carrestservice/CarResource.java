@@ -4,6 +4,7 @@ import com.uci.carrestservice.service.CarService;
 
 import com.uci.carrestservice.model.Order;
 import com.uci.carrestservice.model.Car;
+import com.uci.carrestservice.model.OrderWrapper;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -14,7 +15,7 @@ import java.util.List;
  *
  */
 //todos will be the pathsegment that precedes any path segment specified by @Path on a method.
-@Path("/cars")
+@Path("cars")
 public class CarResource {
 
 
@@ -76,16 +77,14 @@ public class CarResource {
     
     //https://examples.javacodegeeks.com/enterprise-java/rest/jersey/json-example-with-jersey-jackson/
     // good resource above for how to POST a json
-    
+    @Path("send")
     @POST
     @Consumes({MediaType.APPLICATION_JSON}) //This method accepts form parameters.
     //If you were to send a POST through a form submit, this method would be called.
-    public Response addOrder(Order order) {
+    public Response addOrder(OrderWrapper orderw) {
      
-        System.out.println(order);
-
-        if(CarService.AddOrder(order)) {
-            return Response.ok().entity("ORDER Added Successfully").build();
+        if(CarService.AddOrder(orderw.getOrder())) {
+            return Response.ok().entity(orderw).build();
         }
         return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
 

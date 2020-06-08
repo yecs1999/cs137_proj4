@@ -99,7 +99,7 @@ public class CarService {
     }
 
     public static boolean AddOrder(Order order) {
-
+        System.out.println(order.getCVV());
         String sql = "INSERT INTO orders(model, fullname, phone, email, method, country, address, card, cvv)" + 
                      "VALUES (?,?,?,?,?,?,?,?,?)";
         Connection connection = DatabaseConnector.getConnection();

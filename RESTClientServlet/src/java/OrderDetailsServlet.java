@@ -67,13 +67,25 @@ public class OrderDetailsServlet extends HttpServlet {
         String state = request.getParameter("state");
         String card = request.getParameter("card");
         String cvv = request.getParameter("cvv");
+
         String fullAddress = address + " " + city + " " + state + " " + zip;
         String fullname = first + " " + last;
         String modelString = (String)request.getAttribute("modelNames");            
-        Order order = new Order(modelString, fullname,phone, email,method,country,fullAddress,card,cvv);
-        
+        Order order = new Order();
+        order.setModel(modelString);
+        order.setFullName(fullname);
+        order.setPhone(phone);
+        order.setEmail(email);
+        order.setMethod(method);
+        order.setCountry(country);
+        order.setFullAddress(fullAddress);
+        order.setCard(card);
+        order.setCVV(cvv);
+        System.out.println("THis is the CVV in Order obj:" + order.getCVV());
         //Adds the order to the database
         //forms the query and executes it
+        OrderWrapper orderw = new OrderWrapper();
+        orderw.setOrder(order);
         ObjectMapper objectMapper = new ObjectMapper();
         ByteArrayOutputStream jsonObj = new ByteArrayOutputStream();
         try{
@@ -83,14 +95,21 @@ public class OrderDetailsServlet extends HttpServlet {
             System.out.println(e.toString());
         }
         String OrderAsStr = jsonObj.toString();
+        
         InputStream orderStream = new ByteArrayInputStream(OrderAsStr.getBytes());
-        Response resp = target.path("v1").path("api").path("cars")
+        System.out.println("THis is the jsonstring: " + Entity.json(orderStream));
+        final OrderWrapper resp = target.path("v1").path("api").path("cars").path("send")
         .request(MediaType.APPLICATION_JSON_TYPE)
-        .post(Entity.json(orderStream));
+        .post(Entity.entity(orderw, MediaType.APPLICATION_JSON_TYPE),OrderWrapper.class);
+        System.out.println("Hello are we here yet");
         System.out.println(resp);
-        if (resp.getStatus() != 200){
+           
+        
+        /*
+        if (resp.getOrder() != 200){
             System.out.println("Did not post correctly");
         }
+        */
          String addressString = !method.equals("pickup") ? "Country: "+ country +"<br>"+
                     "Shipping Address: "+ fullAddress +"<br>" : "";
          
@@ -112,7 +131,7 @@ public class OrderDetailsServlet extends HttpServlet {
                      addressString +
                     "Card Number: " + card + " CVV: "+ cvv +
                 "</div>"+
-                "<form action=\"index.html\">"+
+                "<form action=\"index.jsp\">"+
                     "<input type=\"submit\" value=\"Go back to index\" />"+
                 "</form>"+
             "</body>"+
