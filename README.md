@@ -21,11 +21,11 @@ Clicking Checkout then shows the user a confirmation screen as well as stores th
 RESTful Service Methods:
 Base URL: http://localhost:8080/CarRestService
 
-GET: <br>
-    Request URL: <br>
+<b>GET:</b> <br>
+    <b>Request URL:</b> <br>
         v1/api/cars/{pid} <br>
         v1/api/cars/category={category}&row={row} <br>
-    Sample Response: <br>
+    <b>Sample Response:</b> <br>
     {"category":"sports", <br>
     "make":"Lotus",<br>
     "model":"Esprit",<br>
@@ -44,10 +44,10 @@ GET: <br>
     "mainImg":"./img/sports/csp11/1.jpg",<br>
     "intImg":"./img/sports/csp11/3.jpg"}<br>
 
-POST:<br>
-    Request URL:<br>
+<b>POST:</b><br>
+    <b>Request URL:</b><br>
         v1/api/cars/send<br>
-    Sample Request:<br>
+   <b> Sample Request:</b><br>
     {"model":"2016 Chevrolet Corvette Z06",<br>
     "phone":"(949)468-8303",<br>
     "email":"me@gmail.com",<br>
