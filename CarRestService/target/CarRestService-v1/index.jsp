@@ -1,18 +1,17 @@
+<%-- 
+    Document   : index
+    Created on : Jun 7, 2020, 7:52:42 PM
+    Author     : Chris
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
-<head>
-    <title>Form to create a new resource</title>
-</head>
-<body>
-<!-- This form will submit a POST request and the POST method defined in TodoResource will respond to it -->
-<center><h2>Create a new TODO</h2></center>
-<form action="../TodoRestService/v1/api/todos" method="POST">
-    <label for="summary">Summary</label>
-    <input id="summary" name="summary" />
-    <br/>
-    Description:
-    <input name="description" ></input>
-    <br/>
-    <input type="submit" value="Submit" />
-</form>
-</body>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Backend page</title>
+    </head>
+    <body>
+        <h1>CarRestService is successfully started</h1>
+    </body>
 </html>
